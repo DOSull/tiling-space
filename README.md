@@ -1,5 +1,5 @@
 # Geographical tiling
-This is work in progress towards developing tiled or 'woven' geospatial data layers for possible symbolisation of complex multiattribute choropleths.
+This is work in progress towards developing tiled or 'woven' geospatial data layers for possible symbolisation of complex multi-attribute choropleths.
 
 The working document is [`testing Tiling code.ipynb`](testing%20Tiling%20code.ipynb).
 
