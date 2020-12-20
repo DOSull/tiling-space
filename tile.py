@@ -1,20 +1,22 @@
 from math import sin, cos, tan, pi, atan2
 import cairo
 
+# Changed some of the defaults
+# 2020-12-21
 # Model() defaults
 WIDTH = 1024
 HEIGHT = 1024
-SCALE = 64
+SCALE = 32
 
 # Model.render() defaults
 BACKGROUND_COLOR = 0x000000
-LINE_WIDTH = 0.1
-MARGIN = 0.1
+LINE_WIDTH = 0.025
+MARGIN = 0
 SHOW_LABELS = False
 
 # Shape() defaults
-FILL_COLOR = 0x477984
-STROKE_COLOR = 0x313E4A
+FILL_COLOR = 0x666666
+STROKE_COLOR = 0xCCCCCC
 
 def color(value):
     r = ((value >> (8 * 2)) & 255) / 255.0
@@ -70,8 +72,11 @@ class Shape(object):
     def points(self, margin=0):
         angle = 2 * pi / self.sides
         rotation = self.rotation - pi / 2
-        if self.sides % 2 == 0:
-            rotation += angle / 2
+        # BUGFIX: 2020-12-21
+        # this incorrectly causes even sided polys to
+        # be tilted relative to required orientation
+        # if self.sides % 2 == 0:
+        #     rotation += angle / 2
         angles = [angle * i + rotation for i in range(self.sides)]
         angles.append(angles[0])
         d = 0.5 / sin(angle / 2) - margin / cos(angle / 2)
