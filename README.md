@@ -1,7 +1,7 @@
 # Geographical tiling
 This is work in progress towards developing tiled or 'woven' geospatial data layers for possible symbolisation of complex multiattribute choropleths.
 
-The working document is `testing Tiling code.ipynb`.
+The working document is [`testing Tiling code.ipynb`](testing Tiling code.ipynb).
 
 The needed modules are given in the conda `tiling.yml` file.
 
